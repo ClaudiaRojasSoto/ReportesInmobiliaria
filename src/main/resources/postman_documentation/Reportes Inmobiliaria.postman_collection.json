@@ -1,0 +1,733 @@
+{
+	"info": {
+		"_postman_id": "a3a22b22-b625-4ad8-a2b3-612bb86dfde2",
+		"name": "Reportes Inmobiliaria",
+		"description": "API para una empresa inmobiliaria que implementa ingreso y obtención de proyectos en curso por parte de los vendedores.  \nUtiliza para el sistema de inicio de sesión la segurización JWT. Realizando las operaciones CRUD para los reportes de los proyectos inmobiliarios.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19270283"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GetAllUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Método Get para listar todos los usuarios registrados"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"7"
+							]
+						},
+						"description": "Método Get para obtener un usuario específico utilizando su id"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"7"
+							]
+						},
+						"description": "Método Delete para eliminar un usuario utilizando su Id."
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nombre\": \"Example\",\n  \"apellido\": \"Example\",\n  \"roles\": [\"USER\"]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/7/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"7",
+								"roles"
+							]
+						},
+						"description": "Solicitud Put para cambiar el rol de un usuario específico, utilizando su Id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"AAA\",\n    \"apellido\": \"Aaa\",\n    \"username\": \"aaa\",\n    \"email\": \"aaa@aaa.com\",\n    \"password\": \"123\",\n    \"confirmPassword\": \"123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Método post para el registro (Creación de un nuevo usuario)"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"aaa\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "GetAllRoles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"roles"
+							]
+						},
+						"description": "Método Get para listar todos los roles"
+					},
+					"response": []
+				},
+				{
+					"name": "AddNewRole",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"NuevoRol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"roles"
+							]
+						},
+						"description": "Método Put para agregar un nuevo role"
+					},
+					"response": []
+				},
+				{
+					"name": "GetRolById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/roles/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"roles",
+								"3"
+							]
+						},
+						"description": "Método Get para obtener un rol específico con el id del rol"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRolById",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"NuevoNombreDelRol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/roles/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"roles",
+								"3"
+							]
+						},
+						"description": "Metodo Put para actualizar un role específico con el id del role"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRoleById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/roles/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"roles",
+								"3"
+							]
+						},
+						"description": "Método Delete para eliminar un role específico con el Id del role."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "AddNewProject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nuevo Proyecto 2\",\n    \"description\": \"Descripción del nuevo proyecto 2\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Método Post para agregar un nuevo proyecto"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllProjects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Método Get para listar todos los projects"
+					},
+					"response": []
+				},
+				{
+					"name": "GetProjectById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/projects/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"projects",
+								"2"
+							]
+						},
+						"description": "Método Get para obtener un proyecto específico con el Id del project"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProjectById",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nombre Actualizado\",\n    \"description\": \"Descripción Actualizada\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/projects/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"projects",
+								"2"
+							]
+						},
+						"description": "Método Put para actualizar/Editar un projecto específico según su Id."
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProjectById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/projects/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"projects",
+								"2"
+							]
+						},
+						"description": "Metodo Delete para eliminar un proyecto específico con el Id del project."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "AddNewReport",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Nuevo Reporte Usuario aaa\",\n    \"content\": \"Contenido del reporte usuarioaaa\",\n    \"projectId\": 3,\n    \"userId\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports"
+							]
+						},
+						"description": "Método Post para crear un nuevo report."
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllReports",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports"
+							]
+						},
+						"description": "Método Get Para Obtener el listado de todos los reports existentes"
+					},
+					"response": []
+				},
+				{
+					"name": "GetReportsByUserId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/reports/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports",
+								"user",
+								"1"
+							]
+						},
+						"description": "Métod Get que permite visualizar todos los reportes del usuario con su id. En el caso de los usuarios administradores, podrán visualizar todos los reportes de usuarios especificos con su id. En el caso de los usuarios sin permisos de administración, solo pueden ver los reportes que les pertenecen."
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateReportById",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Reporte Actualizado\",\n  \"content\": \"Nuevo contenido del reporte actualizado con put\",\n  \"projectId\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/reports/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports",
+								"3"
+							]
+						},
+						"description": "Método Put para actualizar un report por su id."
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteReportById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/reports/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports",
+								"3"
+							]
+						},
+						"description": "Metodo Delete para eliminar el registro de un report por su id."
+					},
+					"response": []
+				},
+				{
+					"name": "GetReportsByProjectId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/reports/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports",
+								"project",
+								"1"
+							]
+						},
+						"description": "Método Get para obtener todos los reportes pertenecientes a un proyecto por su project id."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
